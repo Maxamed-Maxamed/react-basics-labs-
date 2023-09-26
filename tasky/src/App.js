@@ -1,4 +1,7 @@
 // import logo from './logo.svg';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
 import { v4 as uuidv4 } from 'uuid';
 import AddTaskForm from './components/Form';
 import './App.css';
@@ -90,8 +93,32 @@ function App() {
       
     
       <div className="container">
-      <h1>Tasky</h1>
-      {taskState.tasks.map((task, index) => (              
+      {/* <h1>Tasky</h1> */}
+       {/* App Header */}
+       <Container component="main">
+        <Typography
+          component="h1"
+          variant="h2"
+          align="center"
+          gutterBottom
+          sx = {{
+            backgroundColor: 'gray',
+            textAlign: 'center',
+            color: 'white',
+            padding: '20px',
+            margin: '20px 0 40px 0',
+            borderRadius: '4px'
+          }}
+          
+
+        >
+          Tasky
+        </Typography>
+      </Container>
+      {/* End App Header */}
+
+
+      {/* {taskState.tasks.map((task, index) => (              
         <Task 
           title={task.title}
           description={task.description}
@@ -103,9 +130,43 @@ function App() {
           // onChange={(event) => props.change(event)}
           
         />
-      ))}
+      ))} */}
+      {/* Task Card Grid */}
+      <Container maxWidth="md" component="main">
+        <Grid container spacing={5} alignItems="flex-top" justifyContent="center">
+          {taskState.tasks.map((task, index) => (
+                <Task 
+                title={task.title}
+                description={task.description}
+                deadline={task.deadline}
+                done={task.done}
+                key={task.id}
+                markDone = {() => doneHandler(index)}
+                deleteTask = {() => deleteHandler(index)}
+              />
+          ))}
+        </Grid>
+      </Container>
+      {/* End Task Card Grid */}
+
+
+ {/* Footer - Add Task Form */}
+ <Container
+        component="footer"
+        sx={{
+          borderTop: (theme) => `1px solid ${theme.palette.divider}`,
+          my: 6,
+          py: 6,
+        }}
+      >
+        <Grid container justifyContent="center">
+          <AddTaskForm submit={formSubmitHandler} change={formChangeHandler} />
+        </Grid>
+      </Container>
+      {/* End Footer */}
+{/* 
       <AddTaskForm submit={formSubmitHandler} change={formChangeHandler} />
-      
+       */}
       
     </div>
       
