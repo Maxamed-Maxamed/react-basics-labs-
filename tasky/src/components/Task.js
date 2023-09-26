@@ -1,3 +1,7 @@
+
+
+import { Chip } from '@mui/material'
+// import Chip from '@mui/material/Chip';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
@@ -46,6 +50,17 @@ const Task = (props) => {
               <Typography component="p" variant="subtitle2" color="text.primary">
                   Due: {props.deadline}
               </Typography>
+
+              <Chip sx={{
+                            position: 'relative',
+                            alignItems: 'center',
+                            color: "white",
+                            backgroundColor: props.priority === "Low" ? "green" : ""
+                                || props.priority === "Medium" ? "orange" : ""
+                                    || props.priority === "High" ? "red" : ""
+                        }} size="small" label={props.priority}>
+                        </Chip>
+
               </Box>
               <Typography
                   component="p"
