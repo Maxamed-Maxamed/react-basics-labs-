@@ -19,40 +19,31 @@ function App() {
   //     { title: "Tidy up", deadline: "Today" }
   //   ]
   // });
-  const [ taskState, setTaskState ] = useState({
+  const [ taskState ] = useState({
     tasks: [
       { id: 1, title:"Dishes", description: "Empty dishwasher", deadline: "Today" },
       { id: 2, title: "Laundry", description: "Fold clothes and put away", deadline: "Tomorrow" },
       { id: 3, title: "Tidy up", deadline: "Today" },
-      {id: 4,  title:"unkown", deadline:"unknow"},
-      {id: 5,  title:"unkown", deadline:"unknow"}
+      {id: 4,  title:"unkown", description:"unknow",  deadline:"unknow"},
+      {id: 5,  title:"unkown",description:"unknow", deadline:"unknow"}
     ]
   });
 
-  // return (
-  //   // <div className="App">
-  //   <div className="container">
-  //     <h1>Tasky</h1>
+  // const [ taskState, setTaskState ] = useState({
+  //   tasks: [
+  //     { id: 1, title:"Dishes", description: "Empty dishwasher", deadline: "Today" },
+  //     { id: 2, title: "Laundry", description: "Fold clothes and put away", deadline: "Tomorrow" },
+  //     { id: 3, title: "Tidy up", deadline: "Today" },
+  //     {id: 4,  title:"unkown", description:"unknow",  deadline:"unknow"},
+  //     {id: 5,  title:"unkown",description:"unknow", deadline:"unknow"}
+  //   ]
+  // });
 
-      
-  //     <Task title="Dishes" deadline="Today" />
-  //     <Task title="Laundry" deadline="Tomorrow" />
-  //     <Task title="Tidy" deadline="Today" />
-  //     <Task title="Laundry" deadline="Tomorrow">
-  //       Fold laundry and put away
-  //   </Task>
-  //   </div>
-    
-  // );
+
   return (
     <div className="container">
       <h1>Tasky</h1>
-      {/* {taskState.tasks.map((task) => (              
-    <Task 
-      title={task.title}
-      description={task.description}
-      deadline={task.deadline}
-    /> */}
+    
 
     {taskState.tasks.map((task) => (              
       <Task 
@@ -63,12 +54,6 @@ function App() {
       />
     ))}
   
-  
-
-      {/* <Task title={taskState.tasks[0].title} deadline={taskState.tasks[0].deadline} description={taskState.tasks[0].description} />
-      <Task title={taskState.tasks[1].title} deadline={taskState.tasks[1].deadline} description={taskState.tasks[1].description} />
-      <Task title={taskState.tasks[2].title} deadline={taskState.tasks[2].deadline} description={taskState.tasks[2].description} />
-     */}
     </div>
   );
   
